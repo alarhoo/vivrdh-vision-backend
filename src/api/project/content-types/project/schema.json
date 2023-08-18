@@ -1,0 +1,98 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "start_date": {
+      "type": "date",
+      "default": "2023-01-01"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "completed",
+        "ongoing"
+      ]
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location.address",
+      "required": true
+    },
+    "developer": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee",
+      "mappedBy": "project"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "architectural",
+        "interior"
+      ]
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "estimation": {
+      "type": "float"
+    },
+    "dimension": {
+      "type": "integer",
+      "required": true
+    },
+    "dimension_unit": {
+      "type": "enumeration",
+      "enum": [
+        "sq.ft.",
+        "sq.mt."
+      ],
+      "default": "sq.ft.",
+      "required": true
+    },
+    "yt_link": {
+      "type": "string"
+    }
+  }
+}
