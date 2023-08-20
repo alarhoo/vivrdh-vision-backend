@@ -93,6 +93,11 @@
     },
     "yt_link": {
       "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
